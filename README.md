@@ -33,18 +33,23 @@ Ces deux formats sont des fichiers graphiques matriciels à compression sans per
 
 # Jeu de données
 
-Le jeu de données correspond à des images de drosophile.
+Le jeu de données correspond à des images de drosophiles.
 
 Une drosophile est un Insecte de l'ordre des Diptères, surnommée « mouche du vinaigre ». Le genre Drosophila comporte environ 400 espèces, retrouvées sur l'ensemble du globe. Vie de la drosophile
 
 Elles atteignent une longueur de 1 à 2 millimètres. Les drosophiles sont attirées par les fruits, dans lesquels elles pondent leurs œufs et où les larves se développent. Elles possèdent la propriété de se multiplier très rapidement et en très grand nombre. Drosophila melanogaster
 
-La drosophile la plus connue est certainement Drosophila melanogaster, qui est l'un des organismes modèles des biologistes, et plus particulièrement en génétique. Son génome est entièrement séquencé et comporte 4 paires de chromosomes, soit 165 millions de paires de bases
+La drosophile la plus connue est certainement Drosophila melanogaster, qui est l'un des organismes modèles des biologistes, et plus particulièrement en génétique. Son génome est entièrement séquencé et comporte 4 paires de chromosomes, soit 165 millions de paires de bases.
 
-Nous disposons de 30 images test, train et label.
+"Les données sont un ensemble de 30 sections d'une section série de données de microscopie électronique à transmission (ssTEM) du cordon nerveux ventral de la larve du premier stade de la drosophile (VNC)"
+
+Nous disposons de 30 images test, train et label 512*512 ce qui n'est pas suffisant pour alimenter un réseau de neurones d'apprentissage en profondeur, nous allons donc procéder à la data augmentation pour y remédier.
 
 ![image](exemplejeudedonnneesdedepartindex0.JPG)
 
+Les données pour la formation contiennent 30 512 * 512 images, ce qui est loin d'être suffisant pour alimenter un réseau de neurones d'apprentissage en profondeur. J'utilise un module appelé ImageDataGenerator dans keras.preprocessing.image pour augmenter les données.
+
+Le projet a été réalisé sur Google Colab.
 
 # Data augmentation
 
