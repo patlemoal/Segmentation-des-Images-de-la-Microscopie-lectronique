@@ -31,7 +31,7 @@ Le format TIFF est un format raster qui signifie : Tagged Image File Format. Ce 
 Ces deux formats sont des fichiers graphiques matriciels à compression sans perte, mais la conversion au format PNG permet d'obtenir une taille de fichier plus facile à gérer .
 
 
-#Jeu de données
+# Jeu de données
 
 Le jeu de données correspond à des images de drosophile.
 
@@ -45,16 +45,39 @@ Nous disposons de 30 images test, train et label.
 
 ![image](exemplejeudedonnneesdedepartindex0.JPG)
 
-exemplejeudedonnneesdedepartindex0.JPG
 
-exemplejeudedonnneesdedepartindex0.JPG
+# la Data augmentation
+
+L’entraînement d’un réseau de neurones profond sur très peu d’images est souvent challengeant : le modèle n’ayant accès qu’à un nombre limité d’observations, il va avoir tendance à faire de “l’overfitting”, c’est à dire sur-apprendre à partir de l’échantillon d’entraînement, sans pour autant être capable d’émettre des prédictions pertinentes sur de nouvelles images – dans ce cas les performances sont faibles sur l’échantillon de test alors qu’elles étaient bonnes sur les images d’entraînement.
+
+Ce phénomène est bien connu des Data Scientists, qui le résolvent souvent en augmentant la taille du dataset et/ou réduisant le nombre de paramètres du modèle.
+
+La première méthode est souvent difficile à mettre en place car le travail de recueil/labellisation de nouvelles observations est laborieux.
+
+La seconde possibilité est envisageable pour un problème de reconnaissance d’images, cependant les modèles même les moins complexes peuvent contenir des centaines de milliers de paramètres, donc difficile à réaliser ! Comme la Data Augmentation permet de générer de nouvelles images labellisées à partir de celles déjà disponibles, c’est une solution relativement facile à mettre en place, et les résultats peuvent être surprenants.
+
+
+# Architecture utilisée dans le modèle
+
+
+
+Le U-Net est une architecture à réseau convolutionnel pour une segmentation rapide et précise des images. Il a la particularité d’avoir une architecture symétrique composée d’une partie de “contraction”, qui va permettre de détecter le contexte et les objets, et une partie “expansion” composée de succession d’up-convolution qui fait le chemin inverse qui va permettre de reconstituer l’image composée de macro-features extraites de la partie “contraction” et finalement de localiser précisément le contour des objets détectés.
+
+Il a une forme en «U».
+
+L'architecture U-Net est symétrique et son fonctionnement est un peu similaire aux encodeurs automatiques. Il peut être réduit en trois parties principales:
+
+    le chemin de contraction (sous-échantillonnage),
+    le goulot d'étranglement
+    le chemin d'expansion (de suréchantillonnage).
+
+Dans les auto-codeurs, la partie codeur du réseau neuronal comprime l'entrée dans une représentation d'espace latent, puis un décodeur construit la sortie à partir de la représentation compressée ou codée. Mais il y a une légère différence, contrairement aux structures codeur-décodeur régulières, les deux parties ne sont pas découplées. Les connexions par sauts sont utilisées pour transférer des informations à granularité fine des couches de bas niveau du chemin d'analyse vers les couches de haut niveau du chemin de synthèse, car ces informations sont nécessaires pour générer des reconstructions qui ont des détails précis.
+
+
+![image](modele.JPG)
+
+![image](https://user-images.githubusercontent.com/73176528/118724374-d070ec80-b82e-11eb-9c86-f31fd8d33f49.png)
 
 
 
 
-#la Data augmentation
-
-
-
-
-#choix de l'architecture utilisée dans le modèle
