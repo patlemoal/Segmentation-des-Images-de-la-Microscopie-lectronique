@@ -75,7 +75,13 @@ Dans les auto-codeurs, la partie codeur du réseau neuronal comprime l'entrée d
 
 ![image](reseau.JPG)
 
+
+# Modèle
+
 ![image](modele.JPG)
+
+
+# Résultat 
 
 ![image](https://user-images.githubusercontent.com/73176528/118724374-d070ec80-b82e-11eb-9c86-f31fd8d33f49.png)
 
