@@ -47,9 +47,9 @@ Nous disposons de 30 images test, train et label 512*512 ce qui n'est pas suffis
 
 ![image](exemplejeudedonnneesdedepartindex0.JPG)
 
-Les données pour la formation contiennent 30 512 * 512 images, ce qui est loin d'être suffisant pour alimenter un réseau de neurones d'apprentissage en profondeur. J'utilise un module appelé ImageDataGenerator dans keras.preprocessing.image pour augmenter les données.
+Le module appelé ``ImageDataGenerator dans keras.preprocessing.image`` sera utiliser pour augmenter les données.
 
-Le projet a été réalisé sur Google Colab.
+Le projet est réalisé sur Google Colab.
 
 # Data augmentation
 
