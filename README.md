@@ -43,7 +43,11 @@ La drosophile la plus connue est certainement Drosophila melanogaster, qui est l
 
 Nous disposons de 30 images test, train et label.
 
-![image](exemplejeudedonnneesdedepartindex0.png)
+![image](exemplejeudedonnneesdedepartindex0.JPG)
+
+exemplejeudedonnneesdedepartindex0.JPG
+
+exemplejeudedonnneesdedepartindex0.JPG
 
 
 
